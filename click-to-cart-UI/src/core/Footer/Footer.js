@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <div className="footerDiv">
-      <hr />
+
       <footer className="text-lg-start text-muted footer">
         
         <h3 className="text-left brandNameFooter">Images</h3>

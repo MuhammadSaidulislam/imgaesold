@@ -12,7 +12,7 @@ import {
   faHome,
   faStore,
   faChartLine,
-  faSignOutAlt,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 //css
@@ -133,6 +133,10 @@ const Menu = ({ history }) => {
                 </Nav.Link>
               </>
             )}
+          
+            <Nav.Link as={Link} to="/contact" style={isActive(history, "/contact")}>
+             <span className="navItem">Contact</span>
+          </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

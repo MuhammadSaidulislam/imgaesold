@@ -1,0 +1,42 @@
+.cardLeft {
+  padding: 25px 8px;
+}
+
+.cardLeft h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ff1f5a;
+  text-align: right;
+}
+
+.cardLeft h2 {
+  font-size: 26px;
+  font-weight: 400;
+  color: #222;
+  text-align: right;
+}
+
+.cardRight h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff1f5a;
+  text-align: center;
+}
+
+.quantitySize {
+  width: 90px;
+}
+.deliveryAddress{
+  margin-top: 30px;
+}
+.deliveryAddress h1 {
+  font-size: 22px;
+  border-width: 0px;
+  border-radius: 0px;
+  padding-bottom: 30px;
+  margin: 0px;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  text-align: left !important;
+}

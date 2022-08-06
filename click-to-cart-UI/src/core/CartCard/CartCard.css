@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.p_cart{
+    font-size: 20px;
+    color: #1588e6;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.price_cart{
+    font-size: 22px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+}
+
+/* #adjust{
+    border-bottom: 2px solid #574b90;
+} */
+.cartTable {
+    text-align: center;
+}
+.cartTable .cartName{
+    
+    width: 300px;
+}
+.cartTable .cartQuantity{
+    width: 110px;
+  
+}
+.cartTable .cartCategory{
+    width: 200px;
+  
+    text-align: end;
+}
+.cartTable .cartPrice{
+    width: 200px;
+   
+}
+.cartTable .cartDelete{
+    width: 200px;
+
+}

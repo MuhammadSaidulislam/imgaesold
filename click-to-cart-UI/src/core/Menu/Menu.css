@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
+.navbar_nav{
+    background-color: #222;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+  }
+  
+
+.brandName{
+    font-size: 32px !important;
+    font-family: 'Lobster', cursive;
+    color: #ff1f5a !important;
+    margin-left: 5%;
+}
+
+.navItem{
+  font-size: 16px;
+  font-weight: 600;
+}
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+.navImage img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

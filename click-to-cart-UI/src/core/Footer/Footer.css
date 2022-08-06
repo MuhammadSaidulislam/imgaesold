@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+.footerDiv{
+    background-color: #222;
+}
+
+.brandNameFooter{
+    font-size: 32px !important;
+    font-family: 'Lobster', cursive;
+    color: #ff1f5a !important;
+    margin-left: 5%;
+    margin-top: 5%;
+}

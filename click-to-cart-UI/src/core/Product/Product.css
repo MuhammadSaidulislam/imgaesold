@@ -1,0 +1,90 @@
+.bidClass {
+    background-color: #ff1f5a;
+    padding: 25px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.productInfo {
+    height: 100vh;
+    padding: 0px 20px;
+}
+
+.rightBox {
+    border: 1px solid #ccc;
+}
+
+.productInfo h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #D83C3C;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 15px;
+}
+
+.productInfo h2 {
+    font-size: 23px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.productInfo p {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.productDetails img {
+    width: 100%;
+    height: 100vh;
+}
+
+.priceBox {
+    align-items: normal;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+}
+
+.priceBox .form-check-label {
+    font-size: 1.125em;
+}
+
+.priceBox .form-check-label p {
+    font-size: .75em;
+  width: 180px;
+    padding-top: 4px;
+    color: #666;
+    line-height: 1.33;
+}
+.priceBox .form-check-label span {
+    font-size: .75em;
+    display: block;
+    padding-top: 4px;
+    color: #666;
+    line-height: 1.33;
+}
+.addCart button {
+    margin: 10px 0px;
+    border: none;
+    border-radius: .3125em;
+    cursor: pointer;
+    font-size: 1.125rem;
+    outline: none;
+    padding: 1em 0;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    background-color: #6f43d6;
+    border: 1px solid #4316ac;
+    color: #fff;
+    width: 100%;
+}

@@ -3,11 +3,12 @@ const jwt = require("jsonwebtoken");
 const expressJWT = require("express-jwt");
 const { errorHandler } = require("../helpers/dbErrorHandler");
 require("dotenv").config();
+const formidable = require("formidable");
 
 //user signup
 exports.signup = (req, res, next) => {
   //console.log(req.body);
-  const user = new User(req.body);
+
   user.save((err, user) => {
     if (err) {
       //console.log(err)
@@ -20,6 +21,55 @@ exports.signup = (req, res, next) => {
     user.hashPassword = undefined;
     return res.json({
       user,
+    });
+  });
+
+
+  let form = new formidable.IncomingForm();
+
+  form.keepExtensions = true;
+
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      return res.status(400).json({
+        error: "Image Upload Error",
+      });
+    }
+
+    const { name, email, hashPassword, about, salt } = fields;
+    if (
+      !name ||
+      !email ||
+      !hashPassword ||
+      !about ||
+      !salt
+    ) {
+      return res.status(400).json({
+        error: "All Fields are Required",
+      });
+    }
+
+    const user = new User(req.body);
+
+    if (files.photo) {
+      if (files.photo.size > 1000000) {
+        return res.status(400).json({
+          error: "Image Should be less than 1MB",
+        });
+      }
+      user.photo.data = fs.readFileSync(files.photo.path);
+      user.photo.contentType = files.photo.type;
+    }
+
+    user.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler(err),
+        });
+      }
+      return res.json({
+        result,
+      });
     });
   });
 };

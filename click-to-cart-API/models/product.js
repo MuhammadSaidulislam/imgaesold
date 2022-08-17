@@ -39,6 +39,11 @@ const productSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
+    owner: {
+      type: ObjectId,
+      ref: "User",
+      required: true,
+    },
     quantity: {
       type: Number,
     },

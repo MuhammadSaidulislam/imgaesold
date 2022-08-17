@@ -39,6 +39,9 @@ router
 //get all products
 router.route("/products").get(productController.getAll);
 
+//get all products
+router.route("/product/byuser/:userId").get(productController.getProductByUserId);
+
 //get related prodcuts
 router.route("/products/related/:productId").get(productController.listRelated);
 

@@ -41,7 +41,7 @@ exports.create = (req, res, next) => {
       });
     }
 
-    const { name, description, extra_small_price, small_price, medium_price, large_price, category, quantity, shipping } = fields;
+    const { name, description, extra_small_price, small_price, medium_price, large_price, category, quantity, shipping, owner } = fields;
     if (
       !name ||
       !description ||
@@ -51,7 +51,9 @@ exports.create = (req, res, next) => {
       !large_price ||
       !category ||
       !quantity ||
-      !shipping
+      !shipping ||
+      !owner
+
     ) {
       return res.status(400).json({
         error: "All Fields are Required",
@@ -323,3 +325,30 @@ exports.addBids = (req, res, next) => {
     });
   });
 };
+
+
+//get product of single user
+exports.getProductByUserId = (req, res, next) => {
+  //filter field data
+
+  let order = req.query.order ? req.query.order : "asc";
+  let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
+
+  Product.find({
+    owner: req.params.userId
+  })
+    .select("-photo")
+    .populate("category")
+    .sort([[sortBy, order]])
+    // .limit(limit)
+    .exec((err, products) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Products not Found",
+        });
+      }
+      //  console.log(products);
+      return res.send(products);
+    });
+};
+

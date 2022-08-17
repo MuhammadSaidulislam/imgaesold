@@ -88,3 +88,8 @@
     color: #fff;
     width: 100%;
 }
+.addCart p{
+    font-size: 1.75em;
+    text-align: center;
+    margin: 5px 0px;
+}

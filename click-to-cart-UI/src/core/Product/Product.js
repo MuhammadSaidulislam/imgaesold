@@ -15,6 +15,7 @@ const Product = (props) => {
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
   const [error, setError] = useState(false);
+  const [price, setPrice] = useState(0);
   let [redirect, setRedirect] = useState(false);
 
   //get user data and token
@@ -82,7 +83,8 @@ const Product = (props) => {
   //returun the layout
   const [showStatus, setShow] = useState()
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    setPrice(event.target.value)
     if (event.target.value === 'large') {
       setShow(`509 x 339 px (7.07 x 4.71 in)
       72 dpi|
@@ -126,7 +128,7 @@ const Product = (props) => {
                         className="form-check-input"
                         type="radio"
                         name="priceset"
-                        value="extrasmall"
+                        value={product.extra_small_price}
                         id="extrasmall"
                         onChange={handleChange}
                       />
@@ -146,7 +148,7 @@ const Product = (props) => {
                         className="form-check-input"
                         type="radio"
                         name="priceset"
-                        value="small"
+                        value={product.small_price}
                         id="small"
                         onChange={handleChange}
                       />
@@ -159,7 +161,7 @@ const Product = (props) => {
                       </label>
 
                       <div className="ImgPrice">
-                      <p>{product.small_price}</p>
+                        <p>{product.small_price}</p>
                       </div>
                     </div>
                     <div className="priceBox">
@@ -167,7 +169,7 @@ const Product = (props) => {
                         className="form-check-input"
                         type="radio"
                         name="priceset"
-                        value="medium"
+                        value={product.medium_price}
                         id="medium"
                         onChange={handleChange}
                       />
@@ -179,7 +181,7 @@ const Product = (props) => {
                         <p>{showStatus}</p>
                       </label>
                       <div className="ImgPrice">
-                      <p>{product.medium_price}</p>
+                        <p>{product.medium_price}</p>
                       </div>
                     </div>
                     <div className="priceBox">
@@ -187,7 +189,7 @@ const Product = (props) => {
                         className="form-check-input"
                         type="radio"
                         name="priceset"
-                        value="large"
+                        value={product.large_price}
                         id="large"
                         onChange={handleChange}
                       />
@@ -201,7 +203,7 @@ const Product = (props) => {
                       </label>
 
                       <div className="ImgPrice">
-                      <p>{product.large_price}</p>
+                        <p>{product.large_price}</p>
                       </div>
                     </div>
                     <div className="priceBox">
@@ -209,7 +211,7 @@ const Product = (props) => {
                         className="form-check-input"
                         type="radio"
                         name="priceset"
-                        value="freeze"
+                        value={0}
                         id="freeze"
                         onChange={handleChange}
                       />
@@ -220,13 +222,13 @@ const Product = (props) => {
                         Market-freeze
                         <span>Protect your creative work - we'll remove this image from our site for as long as you need it.</span>
                       </label>
-                     
+
                     </div>
                   </div>
 
                   <div className="addCart">
+                    <p>$ {price}</p>
                     <button onClick={addToCart}>Add to cart</button>
-
                   </div>
 
 

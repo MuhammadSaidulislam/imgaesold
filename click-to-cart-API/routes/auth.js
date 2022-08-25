@@ -7,15 +7,15 @@ const validator = require('../validator/index')
 
 //sign up routing
 router.route('/signup')
-    .post(validator.userSignupVlidator, authController.signup);
+    .post(authController.signup);
 
 //sign in routing
 router.route('/signin')
-    .post(authController.signin);    
+    .post(authController.signin);
 
 //sign out routing
 router.route('/signout')
-    .get(authController.signout)    
+    .get(authController.signout)
 
 
 module.exports = router;    

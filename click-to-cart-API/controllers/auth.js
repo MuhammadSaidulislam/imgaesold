@@ -4,25 +4,11 @@ const expressJWT = require("express-jwt");
 const { errorHandler } = require("../helpers/dbErrorHandler");
 require("dotenv").config();
 const formidable = require("formidable");
+const fs = require('fs')
 
 //user signup
 exports.signup = (req, res, next) => {
-  //console.log(req.body);
 
-  user.save((err, user) => {
-    if (err) {
-      //console.log(err)
-      return res.status(400).json({
-        error: errorHandler(err),
-      });
-    }
-
-    user.salt = undefined;
-    user.hashPassword = undefined;
-    return res.json({
-      user,
-    });
-  });
 
 
   let form = new formidable.IncomingForm();
@@ -36,20 +22,24 @@ exports.signup = (req, res, next) => {
       });
     }
 
-    const { name, email, hashPassword, about, salt } = fields;
+    // console.log('====================================');
+    // console.log(fields);
+    // console.log('====================================');
+
+    const { name, email, password } = fields;
+
+
     if (
       !name ||
       !email ||
-      !hashPassword ||
-      !about ||
-      !salt
+      !password
     ) {
       return res.status(400).json({
         error: "All Fields are Required",
       });
     }
 
-    const user = new User(req.body);
+    const user = new User(fields);
 
     if (files.photo) {
       if (files.photo.size > 1000000) {
@@ -63,6 +53,9 @@ exports.signup = (req, res, next) => {
 
     user.save((err, result) => {
       if (err) {
+        console.log('====================================');
+        console.log(err);
+        console.log('====================================');
         return res.status(400).json({
           error: errorHandler(err),
         });

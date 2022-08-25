@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout/Layout";
-import moment from "moment";
 import { Container, Row, Col } from "react-bootstrap";
 import { isAuthenticate } from "../auth/index";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import { getOrderHistory } from "./apiUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faFileImage, faFileImport, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Dashboard = () => {
+const ProductShow = () => {
   //state
   const [history, setHistory] = useState([]);
 
@@ -78,58 +77,16 @@ const Dashboard = () => {
     );
   };
   //show user basic info
-  const userInfo = () => {
+  const productList = () => {
     return (
       <div className="card dashBoardCard mb-5">
-        <h3 className="card-header">User Information</h3>
-        <ul className="list-group">
-          <li className="list-group-item">
-            {" "}
-            <strong> Name: </strong>
-            {name}
-          </li>
-          <li className="list-group-item">
-            {" "}
-            <strong> Email: </strong> {email}
-          </li>
-          <li className="list-group-item">
-            <strong> User Type: </strong>{" "}
-            {role === 1 ? "Admin" : "Registred User"}
-          </li>
-        </ul>
+        <h3 className="card-header">Product list</h3>
+      
       </div>
     );
   };
 
-  //show user purchase history
-  const purchaseHistory = (history) => {
-    return (
-      <div className="dashBoardCard mb-5">
-        <h3 className="mb-5">Purchase history</h3>
-        <ul className="list-group">
-          <li className="list-group-item">
-            {history.map((h, i) => {
-              return (
-                <div>
-                  <hr />
-                  <h4 className="text-danger">Status: {h.status}</h4>
-                  {h.products.map((p, i) => {
-                    return (
-                      <div key={i}>
-                        <h6>Product name: {p.name}</h6>
-                        <h6>Product price: ${p.price}</h6>
-                        <h6>Purchased date: {moment(p.createdAt).fromNow()}</h6>
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </li>
-        </ul>
-      </div>
-    );
-  };
+ 
 
   //return layout
   return (
@@ -138,8 +95,7 @@ const Dashboard = () => {
         <Row>
           <Col md={3} className="mt-3 mb-2">{userLinks()}</Col>
           <Col md={9} className="mt-3 mb-2">
-            {userInfo()}
-            {/* {purchaseHistory(history)} */}
+            {productList()}
           </Col>
         </Row>
       </Container>
@@ -147,4 +103,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ProductShow;

@@ -36,8 +36,10 @@ exports.create = (req, res, next) => {
 
   form.parse(req, (err, fields, files) => {
     if (err) {
+      console.log('imagfe',err);
       return res.status(400).json({
         error: "Image Upload Error",
+        
       });
     }
 

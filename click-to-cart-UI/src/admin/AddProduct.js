@@ -168,6 +168,15 @@ const AddProdcut = () => {
                   {...register("name", { required: true, maxLength: 32 })}
                 />
               </div>
+              <input
+              type="text"
+              id="owner"
+              value={user._id}
+              placeholder="Product Name"
+              className="form-control"
+              {...register("owner", { required: true, maxLength: 32 })}
+             hidden
+            />
               <div className="form-group">
                 <label htmlFor="description">
                   Description{" "}

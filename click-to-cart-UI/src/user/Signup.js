@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom"
 import Layout from "../core/Layout/Layout";
@@ -18,6 +18,7 @@ const Signup = () => {
     const blobUrl = window.URL.createObjectURL(fileList[0]);
     setImgUrlBlob(blobUrl);
   };
+  const form = useRef(null);
   const {
     register,
     handleSubmit,
@@ -27,9 +28,11 @@ const Signup = () => {
 
 
   //form on submit
-  let onSubmit = (data) => {
-    const { name, email, password } = data;
-    signup({ name, email, password }).then((data) => {
+  let onSubmit = () => {
+    // const { name, email, password } = data;
+    const userdata = new FormData(form.current);
+    console.log(userdata);
+    signup(userdata).then((data) => {
       console.log(data.error, data.err);
       if (data.error) {
         setError(data.error);
@@ -40,6 +43,7 @@ const Signup = () => {
         setValue("name", "", { shouldValidate: false });
         setValue("email", "", { shouldValidate: false });
         setValue("password", "", { shouldValidate: false });
+        setValue("photo", "", { shouldValidate: false });
       }
     });
   };
@@ -50,7 +54,9 @@ const Signup = () => {
       <Row>
         <Col md={6} className="centerPosition">
           <h2 className="text-center">Sign UP</h2>
-          <div className="image-item__btn-wrapper">
+
+          <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+            <div className="image-item__btn-wrapper">
               <div className="product-img">
                 <img className="styled-img" src={imgUrlBlob} alt="" />
               </div>
@@ -59,11 +65,9 @@ const Signup = () => {
                 <input type="file" name="photo" id="photo" onChange={blobImageHandler} required />
                 upload image
               </label>
-              <br/>
-              <button type='submit' className='saveBtn'>Save Image</button>
+              <br />
+ 
             </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            
             <div className="form-group">
               <label htmlFor="name" className="text-muted">
                 <strong>Name{" "}</strong>

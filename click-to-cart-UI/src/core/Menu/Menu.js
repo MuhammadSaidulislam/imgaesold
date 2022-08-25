@@ -17,6 +17,7 @@ import {
 
 //css
 import "./Menu.css";
+import ShowImage from "../ShowImage/ShowImage";
 
 //set active page color code
 const isActive = (history, path) => {
@@ -26,7 +27,7 @@ const isActive = (history, path) => {
     return { color: "white" };
   }
 };
-
+const { user, token } = isAuthenticate();
 const Menu = ({ history }) => {
 
   // all menu item
@@ -70,6 +71,7 @@ const Menu = ({ history }) => {
                 style={isActive(history, "/user/dashboard")}
                 className='navImage'
               >
+            {/*   <ShowImage id={user._id} type='user' /> */}
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU"  alt="profileImage" />
                 <span className="navItem"> Name</span>
               </Nav.Link>

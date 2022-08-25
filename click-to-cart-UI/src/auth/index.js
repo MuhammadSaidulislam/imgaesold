@@ -2,14 +2,13 @@ import { API } from "../config";
 
 //user signup
 export const signup = (user) => {
-  // console.log(name, email, password)
+  console.log(user)
   return fetch(`${API}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: user,
   })
     .then((res) => {
       return res.json();

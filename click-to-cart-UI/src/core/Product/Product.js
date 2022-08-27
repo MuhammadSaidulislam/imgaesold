@@ -91,7 +91,10 @@ const Product = (props) => {
       0.2 MP`)
     }
   }
+  console.log('price',price);
   const addToCart = () => {
+    //  product.price=price;
+     console.log('price',price);
     addItem(product, () => {
       setRedirect(true);
     });
@@ -116,12 +119,6 @@ const Product = (props) => {
               <Col md={4}>
                 <div className="productInfo">
                   <p>All Royalty-Free licenses include global use rights, comprehensive protection, simple pricing with volume discounts available</p>
-                  {/*
-                 <h1>Product Name: {product.name}</h1>
-                  <h2>Product Price: {product.price}</h2>
-                  <h2>Quantity: {product.quantity}</h2>
-                  <p>Product Description: {product.description}</p>
-                */}
                   <div className="rightBox">
                     <div className="priceBox">
                       <input

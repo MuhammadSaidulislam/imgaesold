@@ -6,10 +6,13 @@ import { Link } from "react-router-dom";
 import { getOrderHistory } from "./apiUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown, faFileImage, faFileImport, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { byuser } from "../admin/apiAdmin";
+import ShowImage from "../core/ShowImage/ShowImage";
 
 const ProductShow = () => {
   //state
   const [history, setHistory] = useState([]);
+  const [listProduct, setListProduct] = useState([]);
 
   //get auth user data
   const {
@@ -21,11 +24,12 @@ const ProductShow = () => {
 
   //get user order history
   const init = (userId, token) => {
-    getOrderHistory(userId, token).then((data) => {
+    byuser(userId, token).then((data) => {
+      console.log(data);
       if (data.error) {
         console.log(data.error);
       } else {
-        setHistory(data);
+        setListProduct(data);
       }
     });
   };
@@ -53,10 +57,10 @@ const ProductShow = () => {
             </Link>
           </li>
           <li className="list-group">
-          <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
-            <FontAwesomeIcon icon={faUserAlt} /> Product List
-          </Link>
-        </li>
+            <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
+              <FontAwesomeIcon icon={faUserAlt} /> Product List
+            </Link>
+          </li>
           <li className="list-group">
             <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
               <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
@@ -64,12 +68,12 @@ const ProductShow = () => {
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/category">
-            <FontAwesomeIcon icon={faFileImport} /> Create Category
+              <FontAwesomeIcon icon={faFileImport} /> Create Category
             </Link>
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/product">
-            <FontAwesomeIcon icon={faFileImage} /> Create Product
+              <FontAwesomeIcon icon={faFileImage} /> Create Product
             </Link>
           </li>
         </ul>
@@ -79,14 +83,32 @@ const ProductShow = () => {
   //show user basic info
   const productList = () => {
     return (
-      <div className="card dashBoardCard mb-5">
-        <h3 className="card-header">Product list</h3>
-      
-      </div>
+      <Container>
+        <h3 className="card-header text-center">Product list</h3>
+        <Row>
+          {listProduct.map(data =>
+            <Col md={6}>
+              <div className="imgBox">     
+              <ShowImage item={data} url="product" />
+              </div>
+              <div className="imgContent">
+                <h5 className="">Name: {data.name}</h5>
+                <p className="">Description: {data.description}</p>
+                <div className="priceList">
+                <p className="">Extra small Price: {data.extra_small_price}</p>
+                <p className="">Large Price: {data.large_price}</p>
+                <p className="">Medium Price: {data.medium_price}</p>
+                <p className="">small Price: {data.small_price}</p>
+                </div>
+              </div>
+            </Col>
+          )}
+        </Row>
+      </Container>
     );
   };
 
- 
+
 
   //return layout
   return (

@@ -52,6 +52,7 @@
 
 .priceBox .form-check-label {
     font-size: 1.125em;
+    padding-left: 20px;
 }
 
 .priceBox .form-check-label p {
@@ -92,4 +93,9 @@
     font-size: 1.75em;
     text-align: center;
     margin: 5px 0px;
+}
+.form-check-input{
+    position: absolute;
+margin-top: 7px !important;
+margin-left: 1px !important;
 }

@@ -99,3 +99,9 @@
     -o-border-radius: 5px;
     border: none !important;
 }
+.imgBox .square-grid-item__img {
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+    position: relative;
+  }

@@ -4,7 +4,7 @@ import { API } from '../../config'
 const ShowImage = ({ item, url, cssClassName = "" }) => {
     let cls = cssClassName.length > 0 ? `${cssClassName}` : "product-img";
     return (
-        <figure className="square-grid-item__img" style={{ backgroundImage: `url(${API}/${url}/photo/${item._id})` }}></figure>
+        <img className="square-grid-item__img" style={{ backgroundImage: `url(${API}/${url}/photo/${item._id})` }} />
     )
 }
 

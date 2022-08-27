@@ -24,6 +24,7 @@ const Card = ({
 
   //product add to cart
   const addToCart = () => {
+    // product.price=
     addItem(product, () => {
       setRedirect(true);
     });

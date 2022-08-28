@@ -48,7 +48,7 @@ const Menu = ({ history }) => {
 
 
             <Nav.Link as={Link} to="/" style={isActive(history, "/")}>
-               <span className="navItem">Home</span>
+              <span className="navItem">Home</span>
             </Nav.Link>
             <Nav.Link as={Link} to="/shop" style={isActive(history, "/shop")}>
               <span className="navItem">  Shop </span>
@@ -68,19 +68,19 @@ const Menu = ({ history }) => {
                 >
                   {/* <ShowImage item={user} url="user" /> */}
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU" alt="profileImage" />
-                  <span className="navItem">{user.name}</span>
+                  <span className="navItem">{user.name && user.name ? user.name : null}</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
                   to="/"
-                  style={{ cursor: "pointer", color: "rgb(34, 34, 34)"  }}
+                  style={{ cursor: "pointer", color: "rgb(34, 34, 34)" }}
                   onClick={() =>
                     signout(() => {
                       history.push("/");
                     })
                   }
                 >
-                   <span className="navItem"> Logout</span>
+                  <span className="navItem"> Logout</span>
                 </Nav.Link>
               </>
             )}
@@ -94,7 +94,7 @@ const Menu = ({ history }) => {
                   className='navImage'
                 >
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU" alt="profileImage" />
-                 <span className="navItem"> {user.name}</span>
+                  <span className="navItem"> {user.name && user.name ? user.name : null}</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -106,7 +106,7 @@ const Menu = ({ history }) => {
                     })
                   }
                 >
-                   <span className="navItem"> Logout</span>
+                  <span className="navItem"> Logout</span>
                 </Nav.Link>
               </>
             )}

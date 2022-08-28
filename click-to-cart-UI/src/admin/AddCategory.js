@@ -8,7 +8,8 @@ import { createCategory } from "./apiAdmin";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBackward } from '@fortawesome/free-solid-svg-icons'
 import { getOrderHistory } from "../core/apiCore";
-import { faCartArrowDown, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faEye, faFileExport, faFileImage, faFileImport, faList, faMoneyCheck, faUserAlt, faUserEdit, } from "@fortawesome/free-solid-svg-icons";
+
 const AddCategory = () => {
   //state
   let [error, setError] = useState(0);
@@ -48,32 +49,51 @@ const AddCategory = () => {
     <div className="leftAdmin">
       <h4>My account</h4>
       <ul className="list-group userAdmin">
-        <li className="list-group">
-          <Link className="sideBarLink" to="/cart">
-            <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
+          <li className="list-group">
+            <Link className="sideBarLink" to="/cart">
+              <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to={`/profile/${_id}`}>
+              <FontAwesomeIcon icon={faUserAlt} /> Profile
+            </Link>
+          </li>
+          <li className="list-group">
+          <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
+            <FontAwesomeIcon icon={faList} /> Product List
           </Link>
         </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to={`/profile/${_id}`}>
-            <FontAwesomeIcon icon={faUserAlt} /> Profile
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
-            <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to="/create/category">
-            <p>Create Category</p>
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to="/create/product">
-            <p>Create Product</p>
-          </Link>
-        </li>
-      </ul>
+          <li className="list-group">
+            <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
+              <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to="/create/category">
+            <FontAwesomeIcon icon={faFileImport} /> Create Category
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to="/create/product">
+            <FontAwesomeIcon icon={faFileExport} /> Create Product
+            </Link>
+          </li>
+          {isAuthenticate() && isAuthenticate().user.role === 1 && (
+            <>
+            <li className="list-group">
+            <Link className="sideBarLink" to="/admin/orders">
+            <FontAwesomeIcon icon={faEye} />  View Orders
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to="/admin/products">
+            <FontAwesomeIcon icon={faUserEdit} /> Manage Products
+            </Link>
+          </li>
+            </>
+            )}
+        </ul>
     </div>
   );
 };

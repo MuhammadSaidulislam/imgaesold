@@ -7,7 +7,8 @@ import { isAuthenticate } from "../auth/index";
 import { createProduct, getCategorys } from "./apiAdmin";
 import { getOrderHistory } from "../core/apiCore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartArrowDown, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faEye, faFileExport, faFileImage, faFileImport, faList, faMoneyCheck, faUserAlt, faUserEdit, } from "@fortawesome/free-solid-svg-icons";
+
 const AddProdcut = () => {
   const form = useRef(null);
   //state
@@ -55,32 +56,51 @@ const AddProdcut = () => {
     <div className="leftAdmin">
       <h4>My account</h4>
       <ul className="list-group userAdmin">
+      <li className="list-group">
+        <Link className="sideBarLink" to="/cart">
+          <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
+        </Link>
+      </li>
+      <li className="list-group">
+        <Link className="sideBarLink" to={`/profile/${_id}`}>
+          <FontAwesomeIcon icon={faUserAlt} /> Profile
+        </Link>
+      </li>
+      <li className="list-group">
+      <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
+        <FontAwesomeIcon icon={faList} /> Product List
+      </Link>
+    </li>
+      <li className="list-group">
+        <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
+          <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
+        </Link>
+      </li>
+      <li className="list-group">
+        <Link className="sideBarLink" to="/create/category">
+        <FontAwesomeIcon icon={faFileImport} /> Create Category
+        </Link>
+      </li>
+      <li className="list-group">
+        <Link className="sideBarLink" to="/create/product">
+        <FontAwesomeIcon icon={faFileExport} /> Create Product
+        </Link>
+      </li>
+      {isAuthenticate() && isAuthenticate().user.role === 1 && (
+        <>
         <li className="list-group">
-          <Link className="sideBarLink" to="/cart">
-            <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to={`/profile/${_id}`}>
-            <FontAwesomeIcon icon={faUserAlt} /> Profile
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
-            <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to="/create/category">
-            <p>Create Category</p>
-          </Link>
-        </li>
-        <li className="list-group">
-          <Link className="sideBarLink" to="/create/product">
-            <p>Create Product</p>
-          </Link>
-        </li>
-      </ul>
+        <Link className="sideBarLink" to="/admin/orders">
+        <FontAwesomeIcon icon={faEye} />  View Orders
+        </Link>
+      </li>
+      <li className="list-group">
+        <Link className="sideBarLink" to="/admin/products">
+        <FontAwesomeIcon icon={faUserEdit} /> Manage Products
+        </Link>
+      </li>
+        </>
+        )}
+    </ul>
     </div>
   );
 };
@@ -140,9 +160,9 @@ const AddProdcut = () => {
   const newPostForm = () => {
     return (
       <div className="card dashBoardCard mb-5">
-            <h3 className="card-header text-center">Add your product</h3>
+            <h3 className="card-header text-center">Add your Image product</h3>
             <form ref={form} className="mb-3" onSubmit={handleSubmit(onSubmit)}>
-              <h5>Enter your product image</h5>{" "}
+              <h5>Enter your image</h5>{" "}
               <span className="err">{errors.photo && "This Field is Required"}</span>
               <div className="form-group">
                 <label className="btn w-100">
@@ -155,7 +175,7 @@ const AddProdcut = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="name">
-                  Name{" "}
+                  Image name{" "}
                   <span className="err">
                     {errors.name && "This Field is Required"}
                   </span>
@@ -163,7 +183,7 @@ const AddProdcut = () => {
                 <input
                   type="text"
                   id="name"
-                  placeholder="Product Name"
+                  placeholder="Image Name"
                   className="form-control"
                   {...register("name", { required: true, maxLength: 32 })}
                 />
@@ -172,14 +192,14 @@ const AddProdcut = () => {
               type="text"
               id="owner"
               value={user._id}
-              placeholder="Product Name"
+              placeholder="Image Name"
               className="form-control"
               {...register("owner", { required: true, maxLength: 32 })}
              hidden
             />
               <div className="form-group">
                 <label htmlFor="description">
-                  Description{" "}
+                 Image description{" "}
                   <span className="err">
                     {errors.description && "This Field is Required"}
                   </span>
@@ -187,7 +207,7 @@ const AddProdcut = () => {
                 <textarea
                   type="text"
                   id="description"
-                  placeholder="Product Description"
+                  placeholder="image Description"
                   className="form-control"
                   {...register("description", { required: true, maxLength: 2000 })}
                 />
@@ -202,7 +222,7 @@ const AddProdcut = () => {
                 <input
                   type="number"
                   id="price"
-                  placeholder="Product Price"
+                  placeholder="Image Price"
                   className="form-control"
                   {...register("extra_small_price", { required: true })}
                 />
@@ -217,7 +237,7 @@ const AddProdcut = () => {
                 <input
                   type="number"
                   id="price"
-                  placeholder="Product Price"
+                  placeholder="Image Price"
                   className="form-control"
                   {...register("small_price", { required: true })}
                 />
@@ -232,7 +252,7 @@ const AddProdcut = () => {
                 <input
                   type="number"
                   id="price"
-                  placeholder="Product Price"
+                  placeholder="Image Price"
                   className="form-control"
                   {...register("medium_price", { required: true })}
                 />
@@ -247,7 +267,7 @@ const AddProdcut = () => {
                 <input
                   type="number"
                   id="price"
-                  placeholder="Product Price"
+                  placeholder="Image Price"
                   className="form-control"
                   {...register("large_price", { required: true })}
                 />
@@ -262,7 +282,7 @@ const AddProdcut = () => {
                 <select
                   type="text"
                   id="category"
-                  placeholder="Product Category"
+                  placeholder="Image Category"
                   className="form-control"
                   {...register("category", { required: true })}
                 >
@@ -310,7 +330,7 @@ const AddProdcut = () => {
                 />
               </div>
               <button className="btn btn-outline-primary" type="submit">
-                Create Product
+                Create Image
               </button>
             </form>
   

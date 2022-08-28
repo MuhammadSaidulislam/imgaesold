@@ -28,7 +28,7 @@ const isActive = (history, path) => {
   }
 };
 const { user, token } = isAuthenticate();
-console.log(user);
+
 
 const Menu = ({ history }) => {
 
@@ -89,12 +89,12 @@ const Menu = ({ history }) => {
               <>
                 <Nav.Link
                   as={Link}
-                  to="/user/dashboard"
-                  style={isActive(history, "/user/dashboard")}
+                  to="/admin/dashboard"
+                  style={isActive(history, "/admin/dashboard")}
                   className='navImage'
                 >
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU" alt="profileImage" />
-                  <span className="navItem"> {user.name}</span>
+                 <span className="navItem"> {user.name}</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}

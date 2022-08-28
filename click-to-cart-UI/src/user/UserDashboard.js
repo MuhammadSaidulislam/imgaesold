@@ -6,7 +6,7 @@ import { isAuthenticate } from "../auth/index";
 import { Link } from "react-router-dom";
 import { getOrderHistory } from "./apiUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown, faFileImage, faFileImport, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faFileExport, faFileImage, faFileImport, faList, faMoneyCheck, faUserAlt, } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
   //state
@@ -55,7 +55,7 @@ const Dashboard = () => {
           </li>
           <li className="list-group">
           <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
-            <FontAwesomeIcon icon={faUserAlt} /> Product List
+            <FontAwesomeIcon icon={faList} /> Product List
           </Link>
         </li>
           <li className="list-group">
@@ -70,7 +70,7 @@ const Dashboard = () => {
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/product">
-            <FontAwesomeIcon icon={faFileImage} /> Create Product
+            <FontAwesomeIcon icon={faFileExport} /> Create Product
             </Link>
           </li>
         </ul>

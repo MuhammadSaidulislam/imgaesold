@@ -3,13 +3,15 @@ import Layout from "../core/Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import { isAuthenticate } from "../auth/index";
 import { Link } from "react-router-dom";
-import './Main.css'
+import './Main.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartArrowDown, faEye, faFileExport, faFileImage, faFileImport, faList, faMoneyCheck, faUserAlt, faUserEdit, } from "@fortawesome/free-solid-svg-icons";
 
 const AdminDashboard = () => {
 
   //get auth user data
   const {
-    user: { name, email, role },
+    user: { _id, name, email, role },
   } = isAuthenticate();
 
   //admin accessable link
@@ -17,25 +19,47 @@ const AdminDashboard = () => {
     return (
       <div className="leftAdmin">
         <h4 className="">Admin Links</h4>
-        <ul className="list-group">
+        <ul className="list-group userAdmin">
+          <li className="list-group">
+            <Link className="sideBarLink" to="/cart">
+              <FontAwesomeIcon icon={faCartArrowDown} /> My Cart
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to={`/profile/${_id}`}>
+              <FontAwesomeIcon icon={faUserAlt} /> Profile
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
+              <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
+              <FontAwesomeIcon icon={faList} /> Product List
+            </Link>
+          </li>
+
           <li className="list-group">
             <Link className="sideBarLink" to="/create/category">
-              <p>Create Category</p>
+              <FontAwesomeIcon icon={faFileImport} /> Create Category
             </Link>
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/product">
-              <p>Create Product</p>
+              <FontAwesomeIcon icon={faFileExport} /> Create Product
             </Link>
           </li>
+
           <li className="list-group">
             <Link className="sideBarLink" to="/admin/orders">
-              <p>View Orders</p>
+            <FontAwesomeIcon icon={faEye} />  View Orders
             </Link>
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/admin/products">
-              <p>Manage Products</p>
+            <FontAwesomeIcon icon={faUserEdit} /> Manage Products
             </Link>
           </li>
         </ul>
@@ -53,7 +77,7 @@ const AdminDashboard = () => {
           <li className="list-group-item"><strong>Name: </strong> {name}</li>
           <li className="list-group-item"><strong>Email: </strong> {email}</li>
           <li className="list-group-item">
-          <strong>User Type: </strong> {role === 1 ? "Admin" : "Registred User"}
+            <strong>User Type: </strong> {role === 1 ? "Admin" : "Registred User"}
           </li>
         </ul>
       </div>
@@ -64,14 +88,14 @@ const AdminDashboard = () => {
   return (
     <Layout title="Admin Dashboard" description="Admin Dashboard" src="/images/dashBoard.png">
       <Container fluid>
-            <Row>
-                <Col md={3} className="borderLine">
-                    {adminLinks()}
-                </Col>
-                <Col md={9}>
-                    {adminInfo()}
-                </Col>
-            </Row>
+        <Row>
+          <Col md={3} className="mt-3 mb-2">
+            {adminLinks()}
+          </Col>
+          <Col md={9} className="mt-3 mb-2">
+            {adminInfo()}
+          </Col>
+        </Row>
       </Container>
     </Layout>
   );

@@ -5,7 +5,8 @@ import { isAuthenticate } from "../auth/index";
 import { Link } from "react-router-dom";
 import { getOrderHistory } from "./apiUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown, faFileImage, faFileImport, faMoneyCheck, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faEye, faFileExport, faFileImage, faFileImport, faList, faMoneyCheck, faUserAlt, faUserEdit, } from "@fortawesome/free-solid-svg-icons";
+
 import { byuser } from "../admin/apiAdmin";
 import ShowImage from "../core/ShowImage/ShowImage";
 
@@ -57,10 +58,10 @@ const ProductShow = () => {
             </Link>
           </li>
           <li className="list-group">
-            <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
-              <FontAwesomeIcon icon={faUserAlt} /> Product List
-            </Link>
-          </li>
+          <Link className="sideBarLink" to={`/product/byuser/${_id}`}>
+            <FontAwesomeIcon icon={faList} /> Product List
+          </Link>
+        </li>
           <li className="list-group">
             <Link className="sideBarLink" to={`/purchase/history/${_id}`}>
               <FontAwesomeIcon icon={faMoneyCheck} /> Purchase History
@@ -68,14 +69,28 @@ const ProductShow = () => {
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/category">
-              <FontAwesomeIcon icon={faFileImport} /> Create Category
+            <FontAwesomeIcon icon={faFileImport} /> Create Category
             </Link>
           </li>
           <li className="list-group">
             <Link className="sideBarLink" to="/create/product">
-              <FontAwesomeIcon icon={faFileImage} /> Create Product
+            <FontAwesomeIcon icon={faFileExport} /> Create Product
             </Link>
           </li>
+          {isAuthenticate() && isAuthenticate().user.role === 1 && (
+            <>
+            <li className="list-group">
+            <Link className="sideBarLink" to="/admin/orders">
+            <FontAwesomeIcon icon={faEye} />  View Orders
+            </Link>
+          </li>
+          <li className="list-group">
+            <Link className="sideBarLink" to="/admin/products">
+            <FontAwesomeIcon icon={faUserEdit} /> Manage Products
+            </Link>
+          </li>
+            </>
+            )}
         </ul>
       </div>
     );

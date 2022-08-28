@@ -91,10 +91,8 @@ const Product = (props) => {
       0.2 MP`)
     }
   }
-  console.log('price',price);
   const addToCart = () => {
-    //  product.price=price;
-     console.log('price',price);
+    product.price=price;
     addItem(product, () => {
       setRedirect(true);
     });

@@ -65,7 +65,7 @@ exports.create = (req, res, next) => {
     let product = new Product(fields);
 
     if (files.photo) {
-      if (files.photo.size > 1000000) {
+      if (files.photo.size > 10000000) {
         return res.status(400).json({
           error: "Image Should be less than 1MB",
         });
@@ -121,7 +121,7 @@ exports.update = (req, res, next) => {
     //console.log(files.photo);
     if (files.photo.size > 0) {
       // console.log("oohot")
-      if (files.photo.size > 1000000) {
+      if (files.photo.size > 10000000) {
         return res.status(400).json({
           error: "Image Should be less than 1MB",
         });

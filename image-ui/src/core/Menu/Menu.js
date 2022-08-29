@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticate } from "../../auth/index";
@@ -31,9 +31,10 @@ const { user, token } = isAuthenticate();
 
 
 const Menu = ({ history }) => {
-
+  
   // all menu item
   return (
+    
     <div className="navbar_nav">
 
       <Navbar expand="lg" >
@@ -66,9 +67,10 @@ const Menu = ({ history }) => {
                   style={isActive(history, "/user/dashboard")}
                   className='navImage'
                 >
-                  {/* <ShowImage item={user} url="user" /> */}
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU" alt="profileImage" />
-                  <span className="navItem">{user.name && user.name ? user.name : null}</span>
+                  <div className="menuImage">
+                    <ShowImage item={user} url="user" />
+                    <span className="navItem">{user && user ? user.name : null}</span>
+                  </div>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -93,8 +95,10 @@ const Menu = ({ history }) => {
                   style={isActive(history, "/admin/dashboard")}
                   className='navImage'
                 >
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZZYSsnncqDhroX4Ud9rgHCxpDeyLSN5PdG71BuDAk-ulL4CQCFtjL4lKVH26UIW9EOo&usqp=CAU" alt="profileImage" />
-                  <span className="navItem"> {user.name && user.name ? user.name : null}</span>
+                  <div className="menuImage">
+                  <ShowImage item={user} url="user" />
+                    <span className="navItem">{user && user ? user.name : null}</span>
+                  </div>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}

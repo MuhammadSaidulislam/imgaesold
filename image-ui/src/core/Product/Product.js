@@ -81,14 +81,52 @@ const Product = (props) => {
   };
 
   //returun the layout
-  const [showStatus, setShow] = useState()
+  const [extrasmallPrice, setextraSmallPrice] = useState("");
+  const [smallPrice, setSmallPrice] = useState("")
+  const [mediumPrice, setMediumPrice] = useState("")
+  const [largePrice, setLargePrice] = useState("")
   const handleChange = (event) => {
-    // console.log(event.target.value);
+     console.log(event.target.id);
     setPrice(event.target.value)
-    if (event.target.value === 'large') {
-      setShow(`509 x 339 px (7.07 x 4.71 in)
+    if (event.target.id === 'extrasmall') {
+      console.log('price');
+      setextraSmallPrice(`509 x 339 px (7.07 x 4.71 in)
       72 dpi|
-      0.2 MP`)
+      0.2 MP`);
+      setSmallPrice("");
+      setMediumPrice("");
+      setLargePrice();
+    }
+    else if (event.target.id === 'small') {
+      console.log('price');
+      setSmallPrice(`726 x 484 px (10.08 x 6.72 in)
+      72 dpi|
+      0.4 MP`);
+      setextraSmallPrice("");
+      setMediumPrice("");
+      setLargePrice();
+    }
+    else if (event.target.id === 'medium') {
+      setMediumPrice(`2124 x 1416 px (7.08 x 4.72 in)
+      300 dpi|
+      3.0 MP`);
+      setSmallPrice("");
+      setextraSmallPrice("");
+      setLargePrice();
+    }
+    else if (event.target.id === 'large') {
+      setLargePrice(`5200 x 3467 px (17.33 x 11.56 in)
+      300 dpi|
+      18.0 MP`);
+      setMediumPrice("")
+      setSmallPrice("");
+      setextraSmallPrice("");
+    }
+    else{
+      setMediumPrice("")
+      setSmallPrice("");
+      setextraSmallPrice("");
+      setLargePrice("")
     }
   }
   const addToCart = () => {
@@ -132,7 +170,7 @@ const Product = (props) => {
                         htmlFor="extrasmall"
                       >
                         Extra Small
-                        <p>{showStatus}</p>
+                        <p>{extrasmallPrice}</p>
                       </label>
                       <div className="ImgPrice">
                         <p>{product.extra_small_price}</p>
@@ -152,7 +190,7 @@ const Product = (props) => {
                         htmlFor="small"
                       >
                         Small
-                        <p>{showStatus}</p>
+                        <p>{smallPrice}</p>
                       </label>
 
                       <div className="ImgPrice">
@@ -173,7 +211,7 @@ const Product = (props) => {
                         htmlFor="medium"
                       >
                         Medium
-                        <p>{showStatus}</p>
+                        <p>{mediumPrice}</p>
                       </label>
                       <div className="ImgPrice">
                         <p>{product.medium_price}</p>
@@ -194,7 +232,7 @@ const Product = (props) => {
                         htmlFor="large"
                       >
                         Large
-                        <p>{showStatus}</p>
+                        <p>{largePrice}</p>
                       </label>
 
                       <div className="ImgPrice">

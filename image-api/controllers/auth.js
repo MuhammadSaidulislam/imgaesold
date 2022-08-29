@@ -42,7 +42,7 @@ exports.signup = (req, res, next) => {
     const user = new User(fields);
 
     if (files.photo) {
-      if (files.photo.size > 1000000) {
+      if (files.photo.size > 10000000) {
         return res.status(400).json({
           error: "Image Should be less than 1MB",
         });

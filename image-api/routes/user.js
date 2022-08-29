@@ -13,6 +13,10 @@ router.route('/user/:userId')
 //get user oder history    
 router.get('/orders/by/user/:userId', authController.requireSignin, authController.isAuth, userController.orderHistory)
 
+
+//get user photo
+router.route("/user/photo/:userId").get(userController.getPhoto);
+
 //url parameter
 //get user by id
 router.param('userId', userController.userByID)

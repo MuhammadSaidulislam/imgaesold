@@ -92,3 +92,13 @@ exports.orderHistory = (req, res, next) => {
       }
     });
 };
+
+
+
+//get user photo
+exports.getPhoto = (req, res, next) => {
+  if (req.profile.photo.data) {
+    res.set("Content-Type", req.profile.photo.contentType);
+    return res.send(req.profile.photo.data);
+  }
+};

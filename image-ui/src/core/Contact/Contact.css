@@ -1,4 +1,6 @@
-
+.contactSection{
+  padding: 50px 0px;
+}
 
 .contact1 input {
 	outline: none;
@@ -60,7 +62,7 @@
   }
   
   .container-contact1 {
-    width: 1163px;
+   
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -71,17 +73,13 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  
-    padding: 90px 130px 88px 148px;
+    justify-content: center;
+   
   }
   
   /*------------------------------------------------------------------
   [  ]*/
-  .contact1-pic {
-    width: 296px;
-  }
+  
   
   .contact1-pic img {
     max-width: 100%;
@@ -106,18 +104,26 @@
   
   input.input1 {
     height: 50px;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 0 30px;
-  }
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
   input.input1 + .shadow-input1 {
     border-radius: 25px;
   }
   
   textarea.input1 {
     min-height: 150px;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 12px 30px;
-  }
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
   textarea.input1 + .shadow-input1 {
     border-radius: 25px;
   }
@@ -133,11 +139,12 @@
   .input1 {
     display: block;
     width: 100%;
-    background: #e6e6e6;
+    background: #f9f9f9;
     font-family: Montserrat-Bold;
     font-size: 15px;
     line-height: 1.5;
     color: #666666;
+    border: 1px solid #ff1f5a;
   }
   
   .shadow-input1 {
@@ -187,7 +194,7 @@
     min-width: 193px;
     height: 50px;
     border-radius: 25px;
-    background: #57b846;
+    background: #ff1f5a;
     font-family: Montserrat-Bold;
     font-size: 15px;
     line-height: 1.5;
@@ -205,6 +212,7 @@
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+    border: #ff1f5a;
   }
   
   .contact1-form-btn i {
@@ -217,7 +225,7 @@
   }
   
   .contact1-form-btn:hover {
-    background: #333333;
+    background: #ff1f5a;
   }
   
   .contact1-form-btn:hover i {

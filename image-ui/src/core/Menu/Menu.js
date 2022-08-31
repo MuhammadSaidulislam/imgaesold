@@ -39,7 +39,7 @@ const Menu = ({ history }) => {
 
       <Navbar expand="lg" >
         <Navbar.Brand as={Link} to="/" className="brandName">
-          Images
+         Bay Images
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

@@ -109,3 +109,6 @@ a{
   -ms-transform: translate(-50%,0);
   -o-transform: translate(-50%,0);
 }
+.input-group-prepend{
+  width: auto !important;
+}

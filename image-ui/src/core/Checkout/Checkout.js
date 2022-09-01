@@ -7,7 +7,7 @@ import {
   createOrder,
 } from "../apiCore";
 import { emptyCart } from "../cartHelpers";
-
+import { saveAs } from 'file-saver';
 import { isAuthenticate } from "../../auth/index";
 import DropIn from "braintree-web-drop-in-react";
 import './Checkout.css'
@@ -85,6 +85,27 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
         processPayment(userId, token, paymentData)
           .then((respone) => {
+            console.log('getProduct',products[0]._id);
+            const imgUrl=products[0]._id
+            var request = new XMLHttpRequest();
+            request.open('GET', `http://localhost:8000/api/product/photo/${imgUrl}`, true);
+            request.responseType = 'blob';
+            request.onload = function() {
+                var reader = new FileReader();
+                reader.readAsDataURL(request.response);
+                reader.onload =  function(e){
+                    const imgurl=e.target.result;
+                    saveAs(`${imgurl}`, 'image.jpg')
+                };
+            };
+            request.send(); 
+
+            // image download end
+
+
+
+
+
             const orderData = {
               products: products,
               transaction_id: respone.transaction.id,

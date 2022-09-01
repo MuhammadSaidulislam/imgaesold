@@ -2,14 +2,45 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Layout from '../Layout/Layout';
 import './Contact.css';
-import contactImage from './contact.jpg'
+import contactImage from './contact.jpg';
+import { API } from '../../config';
+import  JSZip from 'jszip';
+import FileSaver from 'file-saver';
+import JSZipUtils from 'jszip-utils';
 
 const Contact = () => {
+ //   const imgaeUrl= `url(${API}/product/photo/${item._id})`
+//  const download =()=>{
+//     let links=[
+//         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnlWMMeHaxv8LJdrZCvo4fBvEo2uJazm9x_VX2dExy&s",
+//          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnlWMMeHaxv8LJdrZCvo4fBvEo2uJazm9x_VX2dExy&s"
+//     ];
+//     var zip = new JSZip();
+//     var count = 0;
+//     var zipFilename = "Pictures.zip";  
+//     links.forEach(function (url, i) {
+//       var filename = links[i];
+//       filename = filename.replace(/[\/\*\|\:\<\>\?\"\\]/gi, '').replace("httpssequenceimagestaging.blob.core.windows.netretouch","");
+//       JSZipUtils.getBinaryContent(url, function (err, data) {
+//         if (err) {
+//           throw err;
+//         }
+//         zip.file(filename, data, { binary: true });
+//         count++;
+//         if (count == links.length) {
+//           zip.generateAsync({ type: 'blob' }).then(function (content) {
+//             FileSaver.saveAs(content, zipFilename);
+//           });
+//         }
+//       });
+//     });
+// }
     return (
         <Layout title="contact us" description="E-Commerce Website">
            <section className='contactSection'>
            <Container>
            <Row>
+         {/*   <button onClick={()=>download()}>click me </button> */}
                <Col md={6}>
                    <div className="contact1-pic js-tilt" data-tilt>
                        <img src={contactImage} alt="IMG" />

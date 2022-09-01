@@ -5,7 +5,7 @@ import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { updateItem, removeItem } from "../cartHelpers";
 import "./CartCard.css";
 import { Table } from "react-bootstrap";
-
+import ShowImage from "../ShowImage/ShowImage";
 const CartCard = ({
   product,
   viewProductButton = true,
@@ -17,6 +17,10 @@ const CartCard = ({
   //state
   const [redirect, setRedirect] = useState(false);
   const [count, setCount] = useState(product.count);
+
+
+  console.log('product',product);
+
 
   //redirect user to cart page
   const shouldRedirect = (redirect) => {
@@ -80,10 +84,8 @@ const CartCard = ({
                   )}
                 </Link>
               </th>
+              <th className="cartImage"><ShowImage item={product} url="product" /></th>
               <th>{product.category && product.category.name}</th>
-              <th>
-              {showCartUpdateOptions(cartUpdate)}
-              </th>
               <th>
               {showRemoveButton(showRemoveProductButton)}
             </th>

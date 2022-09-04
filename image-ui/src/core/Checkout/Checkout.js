@@ -85,10 +85,10 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
         processPayment(userId, token, paymentData)
           .then((respone) => {
-            console.log('getProduct',products[0]._id);
-            const imgUrl=products[0]._id
+            console.log('getProduct',products.length);
+            // const imgUrl=products[0]._id
             var request = new XMLHttpRequest();
-            request.open('GET', `http://localhost:8000/api/product/photo/${imgUrl}`, true);
+            request.open('GET', `http://localhost:8000/api/product/photo/${products[0]._id}`, true);
             request.responseType = 'blob';
             request.onload = function() {
                 var reader = new FileReader();
@@ -98,6 +98,7 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
                     saveAs(`${imgurl}`, 'image.jpg')
                 };
             };
+            
             request.send(); 
 
             // image download end

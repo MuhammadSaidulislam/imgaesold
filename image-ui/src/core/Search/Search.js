@@ -106,7 +106,7 @@ const Search = () => {
             type="search"
             className="form-control"
             onChange={handelChnage("search")}
-            placeholder="Search Product"
+            placeholder="Search Images"
           />
 
           <button type="submit" className="btn">Search</button>

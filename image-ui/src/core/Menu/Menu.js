@@ -39,7 +39,7 @@ const Menu = ({ history }) => {
 
       <Navbar expand="lg" >
         <Navbar.Brand as={Link} to="/" className="brandName">
-         Bay Images
+         BAY  IMAGES
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -49,10 +49,10 @@ const Menu = ({ history }) => {
 
 
             <Nav.Link as={Link} to="/" style={isActive(history, "/")}>
-              <span className="navItem">Home</span>
+              <span className="navItem">HOME</span>
             </Nav.Link>
             <Nav.Link as={Link} to="/shop" style={isActive(history, "/shop")}>
-              <span className="navItem">  Shop </span>
+              <span className="navItem"> COLLECTIONS </span>
             </Nav.Link>
             <Nav.Link as={Link} to="/cart" style={isActive(history, "/cart")}>
               <FontAwesomeIcon icon={faCartPlus} /> <sup> {itemTotal()}</sup>
@@ -82,7 +82,7 @@ const Menu = ({ history }) => {
                     })
                   }
                 >
-                  <span className="navItem"> Logout</span>
+                  <span className="navItem"> LOGOUT</span>
                 </Nav.Link>
               </>
             )}
@@ -110,7 +110,7 @@ const Menu = ({ history }) => {
                     })
                   }
                 >
-                  <span className="navItem"> Logout</span>
+                  <span className="navItem"> LOGOUT</span>
                 </Nav.Link>
               </>
             )}
@@ -122,14 +122,14 @@ const Menu = ({ history }) => {
                   to="/signin"
                   style={isActive(history, "/signin")}
                 >
-                  <FontAwesomeIcon icon={faSignInAlt} />  <span className="navItem"> Login</span>
+                  <FontAwesomeIcon icon={faSignInAlt} />  <span className="navItem"> LOGIN</span>
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
                   to="/signup"
                   style={isActive(history, "/signup")}
                 >
-                  <FontAwesomeIcon icon={faUser} />  <span className="navItem"> Register</span>
+                  <FontAwesomeIcon icon={faUser} />  <span className="navItem"> REGISTER</span>
                 </Nav.Link>
               </>
             )}
@@ -137,7 +137,7 @@ const Menu = ({ history }) => {
 
 
             <Nav.Link as={Link} to="/contact" style={isActive(history, "/contact")}>
-              <span className="navItem">Contact</span>
+              <span className="navItem">CONTACT</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

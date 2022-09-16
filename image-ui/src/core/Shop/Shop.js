@@ -3,8 +3,6 @@ import Layout from "../Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "../Card/Card";
 import { getCategorys, getFilteredProducts } from "../apiCore";
-import Checkbox from "../Checkbox/Checkbox";
-import RadioBox from "../RadioBox/RadioBox";
 import { prices } from "../fixedPrice";
 import './Shop.css'
 
@@ -130,7 +128,7 @@ const Shop = () => {
           </Col>
         */}
           <Col md={12} className="mb-3">
-            <h2 className="mb-4 text-center" style={{ color: '#ff1f5a', fontWeight: '800' }}>SHOW PRODUCT</h2>
+            <h2 className="mb-4 text-center" style={{ color: '#ff1f5a', fontWeight: '800' }}>All Images</h2>
           </Col>
           <div className="square-grid-containerr">
             {result.map((product, i) => (

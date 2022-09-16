@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <Layout
       title="Welcome to Click to Cart"
-      description="Click to Cart is a E-Commerce Website, From Where you can buy any daily life product for your-self."
+      description="Click to Cart is a stock photography Website, From Where you can buy any daily life images for your-self."
       src="/images/shopping-basket.png"
       className="container-fluid"
     >
@@ -67,7 +67,7 @@ const Home = () => {
     */}
 
      <Container>
-           <h2 className="mb-4">New Arrivals</h2> 
+           <h2 className="mb-4">Latest Arrivals</h2> 
      <div className="square-grid-container">
   
          {productsBySell.slice(0, 5).map((product, i) => (
@@ -78,7 +78,7 @@ const Home = () => {
 
       <hr />
       <Container>
-        <h2 className="mb-4">All Products</h2>
+        <h2 className="mb-4">All Images</h2>
         <div className="square-grid-containerr">
         {productsByArrival.slice(0, 12).map((product, i) => (
           <Card key={i} product={product} />

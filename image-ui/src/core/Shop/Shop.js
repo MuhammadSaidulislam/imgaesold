@@ -3,8 +3,6 @@ import Layout from "../Layout/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import Card from "../Card/Card";
 import { getCategorys, getFilteredProducts } from "../apiCore";
-import Checkbox from "../Checkbox/Checkbox";
-import RadioBox from "../RadioBox/RadioBox";
 import { prices } from "../fixedPrice";
 import './Shop.css'
 

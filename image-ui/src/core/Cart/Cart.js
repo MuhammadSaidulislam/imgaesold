@@ -5,7 +5,7 @@ import { getCart } from '../cartHelpers';
 import CartCard from '../CartCard/CartCard';
 import Checkout from '../Checkout/Checkout';
 import { Col, Container, Row, Table } from 'react-bootstrap';
-import './Cart.css'
+import './Cart.css';
 
 
 const Cart = () => {
@@ -35,8 +35,8 @@ const Cart = () => {
                     <thead>
                         <tr>
                             <th>Product Name</th>
+                            <th>Product Image</th>
                             <th>Category</th>
-                            <th className='quantitySize'>Quantity</th>
                             <th>Delete</th>
                             <th>Price</th>
                         </tr>

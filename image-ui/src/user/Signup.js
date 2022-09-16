@@ -58,12 +58,12 @@ const Signup = () => {
           <form ref={form} onSubmit={handleSubmit(onSubmit)}>
             <div className="image-item__btn-wrapper">
               <div className="product-img">
-                <img className="styled-img" src={imgUrlBlob} alt="" />
+                {/* <img className="styled-img" src={imgUrlBlob} alt="" /> */}
               </div>
 
               <label className="custom-file-upload updateBtn">
                 <input type="file" name="photo" id="photo" onChange={blobImageHandler} required />
-                upload image
+                Upload Your profile Photo
               </label>
               <br />
  

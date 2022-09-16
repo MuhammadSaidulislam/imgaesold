@@ -11,7 +11,7 @@ const Footer = () => {
 
       <footer className="text-lg-start text-muted footer">
         
-        <h3 className="text-left brandNameFooter">Images</h3>
+        <h3 className="text-left brandNameFooter">Bay Images</h3>
 
         <section className="">
           <div className="container text-center text-md-start mt-5">
@@ -21,7 +21,7 @@ const Footer = () => {
                   <i className="fas fa-gem me-3"></i>Description
                 </h6>
                 <p>
-                 Here we show best garments export products.You can see the products and also bid the products.
+                We are the world’s foremost visual experts—capturing, creating and preserving content to elevate visual communications everywhere. By identifying cultural shifts, spearheading trends and powering the creative economy, we fuel visual storytelling worldwide.
                 </p>
               </div>
 
@@ -44,7 +44,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a href="#!" className="text-reset">
-                    Signup
+                    Sign Up
                   </a>
                 </p>
               </div>
@@ -76,17 +76,17 @@ const Footer = () => {
               <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                 <p>
-                <FontAwesomeIcon icon={faHome} /> Dhaka, Bangladesh
+                <FontAwesomeIcon icon={faHome} /> 94/A Narayanganj 1420, Bangladesh
                 </p>
                 <p>
                 <FontAwesomeIcon icon={faEnvelope} />
-                   info@example.com
+                   Jahidalamapu@gmail.com
                 </p>
                 <p>
-                <FontAwesomeIcon icon={faPhone} /> + 01 234 567 88
+                <FontAwesomeIcon icon={faPhone} /> + 88 01626168600
                 </p>
                 <p>
-                <FontAwesomeIcon icon={faPhone} /> + 01 234 567 89
+                <FontAwesomeIcon icon={faPhone} /> + 88 01701951953
                 </p>
               </div>
             </div>
@@ -98,8 +98,8 @@ const Footer = () => {
          
         >
           © 2021 Copyright:
-          <a className="text-reset fw-bold" href="https://sabiulhajjaj.com/">
-           Garments export product
+          <a className="text-reset fw-bold" href="">
+            Bay Images
           </a>
         </div>
       </footer>

@@ -6,7 +6,7 @@
     -ms-transform: translate(-50%,0);
     -o-transform: translate(-50%,0);
     background-color: #fff;
-    border: 2px solid #ff1f5a;
+    border: 2px solid lightgrey;
     padding: 0px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -15,7 +15,7 @@
     -o-border-radius: 8px;
 }
 .centerPosition h2{
-    background-color: #ff1f5a;
+    background-color: lightgrey;
     padding: 25px 0px;
 }
 .centerPosition form{
